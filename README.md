@@ -1,7 +1,7 @@
-# remocolab
-## [Using a remote desktop or SSH is now disallowed from Colab runtimes](https://research.google.com/colaboratory/faq.html)
+# remoopen
 
-remocolab is a Python module to allow remote access to [Google Colaboratory](https://colab.research.google.com/) using SSH or [TurboVNC](https://www.turbovnc.org/).
+
+remoopen is a Python module to allow remote access to [Google Colaboratory](https://colab.research.google.com/) using SSH or [TurboVNC](https://www.turbovnc.org/).
 It also install [VirtualGL](https://www.virtualgl.org/) so that you can run OpenGL programs on a Google Colaboratory machine and see the screen on VNC client.
 It secures TurboVNC connection using SSH port forwarding.
 
@@ -51,16 +51,16 @@ If you use Argo Tunnel:
    - add `tunnel = "ngrok"` if you use ngrok.
 - SSH only:
 ```python3
-!pip install git+https://github.com/demotomohiro/remocolab.git
-import remocolab
-remocolab.setupSSHD()
+!pip install git+https://github.com/kmille36/remoopen.git
+import remoopen
+remoopen.setupSSHD()
 ```
 
 - SSH and TurboVNC:
 ```python3
-!pip install git+https://github.com/demotomohiro/remocolab.git
-import remocolab
-remocolab.setupVNC()
+!pip install git+https://github.com/kmille36/remoopen.git
+import remoopen
+remoopen.setupVNC()
 ```
 4. (Optional) If you want to run OpenGL applications or any programs that use GPU,
 Click "Runtime" -> "Change runtime type" in top menu and change Hardware accelerator to GPU. 
