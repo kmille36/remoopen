@@ -397,13 +397,13 @@ vnc_user_dir.mkdir(exist_ok=True)
 vnc_user_passwd = vnc_user_dir.joinpath("passwd")
 with vnc_user_passwd.open('wb') as f:
   subprocess.run(
-    ["/opt/TurboVNC/bin/vncpasswd", "-f"],
+    ["vncpasswd", "-f"],
     stdout=f,
     input=vncpasswd_input,
     universal_newlines=True)
 vnc_user_passwd.chmod(0o600)
 subprocess.run(
-  ["/opt/TurboVNC/bin/vncserver"],
+  ["tigervncserver"],
   cwd = pathlib.Path.home()
 )
 
