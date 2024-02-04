@@ -366,7 +366,7 @@ def _setupVNC():
   my_apt.installDebPackage("virtualgl.deb")
   # my_apt.installDebPackage("turbovnc.deb")
 
-  my_apt.installPkg("icewm", "xfce4-terminal", "tigervnc-standalone-server", "thunar")
+  my_apt.installPkg("xfce4", "xfce4-terminal", "tigervnc-standalone-server", "thunar")
   my_apt.commit()
   my_apt.close()
 
@@ -403,7 +403,7 @@ with vnc_user_passwd.open('wb') as f:
     universal_newlines=True)
 vnc_user_passwd.chmod(0o600)
 subprocess.run(
-  ["vncserver"],
+  ["vncserver -xstartup "vglrun startxfce4"],
   cwd = pathlib.Path.home()
 )
 
