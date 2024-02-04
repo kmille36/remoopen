@@ -352,30 +352,30 @@ def _setup_nvidia_gl():
 def _setupVNC():
   libjpeg_ver = "2.0.5"
   virtualGL_ver = "2.6.4"
-  turboVNC_ver = "2.2.5"
+  # turboVNC_ver = "2.2.5"
 
   libjpeg_url = "https://github.com/demotomohiro/turbovnc/releases/download/2.2.5/libjpeg-turbo-official_{0}_amd64.deb".format(libjpeg_ver)
   virtualGL_url = "https://github.com/demotomohiro/turbovnc/releases/download/2.2.5/virtualgl_{0}_amd64.deb".format(virtualGL_ver)
-  turboVNC_url = "https://github.com/demotomohiro/turbovnc/releases/download/2.2.5/turbovnc_{0}_amd64.deb".format(turboVNC_ver)
+  # turboVNC_url = "https://github.com/demotomohiro/turbovnc/releases/download/2.2.5/turbovnc_{0}_amd64.deb".format(turboVNC_ver)
 
   _download(libjpeg_url, "libjpeg-turbo.deb")
   _download(virtualGL_url, "virtualgl.deb")
-  _download(turboVNC_url, "turbovnc.deb")
+  # _download(turboVNC_url, "turbovnc.deb")
   my_apt = _MyApt()
   my_apt.installDebPackage("libjpeg-turbo.deb")
   my_apt.installDebPackage("virtualgl.deb")
-  my_apt.installDebPackage("turbovnc.deb")
+  # my_apt.installDebPackage("turbovnc.deb")
 
-  my_apt.installPkg("xfce4", "xfce4-terminal")
+  my_apt.installPkg("xfce4", "xfce4-terminal", "tigervnc-standalone-server")
   my_apt.commit()
   my_apt.close()
 
-  vnc_sec_conf_p = pathlib.Path("/etc/turbovncserver-security.conf")
-  vnc_sec_conf_p.write_text("""\
-no-remote-connections
-no-httpd
-no-x11-tcp-connections
-""")
+#  vnc_sec_conf_p = pathlib.Path("/etc/turbovncserver-security.conf")
+#  vnc_sec_conf_p.write_text("""\
+# no-remote-connections
+# no-httpd
+# no-x11-tcp-connections
+# """)
 
   gpu_name = _get_gpu_name()
   if gpu_name != None:
@@ -397,13 +397,13 @@ vnc_user_dir.mkdir(exist_ok=True)
 vnc_user_passwd = vnc_user_dir.joinpath("passwd")
 with vnc_user_passwd.open('wb') as f:
   subprocess.run(
-    ["/opt/TurboVNC/bin/vncpasswd", "-f"],
+    ["vncpasswd", "-f"],
     stdout=f,
     input=vncpasswd_input,
     universal_newlines=True)
 vnc_user_passwd.chmod(0o600)
 subprocess.run(
-  ["/opt/TurboVNC/bin/vncserver"],
+  ["vncserver"],
   cwd = pathlib.Path.home()
 )
 
