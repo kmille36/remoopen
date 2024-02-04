@@ -383,7 +383,9 @@ def _setupVNC():
 
   vncrun_py = tempfile.gettempdir() / pathlib.Path("vncrun.py")
   vncrun_py.write_text("""\
-import subprocess, secrets, pathlib
+import subprocess
+import secrets
+import pathlib
 
 vnc_passwd = secrets.token_urlsafe()[:8]
 vnc_viewonly_passwd = secrets.token_urlsafe()[:8]
