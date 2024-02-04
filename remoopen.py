@@ -354,9 +354,9 @@ def _setupVNC():
   virtualGL_ver = "2.6.4"
   turboVNC_ver = "2.2.5"
 
-  libjpeg_url = "https://github.com/demotomohiro/turbovnc/releases/download/2.2.5/libjpeg-turbo-official_{0}_amd64.deb".format(libjpeg_ver)
-  virtualGL_url = "https://github.com/demotomohiro/turbovnc/releases/download/2.2.5/virtualgl_{0}_amd64.deb".format(virtualGL_ver)
-  turboVNC_url = "https://github.com/demotomohiro/turbovnc/releases/download/2.2.5/turbovnc_{0}_amd64.deb".format(turboVNC_ver)
+  libjpeg_url = "https://github.com/libjpeg-turbo/libjpeg-turbo/releases/download/3.0.2/libjpeg-turbo-official_3.0.2_amd64.deb".format(libjpeg_ver)
+  virtualGL_url = "https://github.com/VirtualGL/virtualgl/releases/download/3.1beta1/virtualgl_3.0.90_amd64.deb".format(virtualGL_ver)
+  turboVNC_url = "https://github.com/TurboVNC/turbovnc/releases/download/3.1/turbovnc_3.1_amd64.deb".format(turboVNC_ver)
 
   _download(libjpeg_url, "libjpeg-turbo.deb")
   _download(virtualGL_url, "virtualgl.deb")
