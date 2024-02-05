@@ -366,7 +366,7 @@ def _setupVNC():
   my_apt.installDebPackage("virtualgl.deb")
   # my_apt.installDebPackage("turbovnc.deb")
 
-  my_apt.installPkg("xfce4", "xfce4-terminal", "tigervnc-standalone-server")
+  my_apt.installPkg("xfce4", "xfce4-terminal", "tigervnc-standalone-server", "nvtop", "htop")
   my_apt.commit()
   my_apt.close()
 
