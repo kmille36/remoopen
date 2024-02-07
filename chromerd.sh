@@ -86,10 +86,10 @@ finish_setup() {
 }
 
 # Check if username is provided
-if [ -z "$user" ]; then
-    echo "Please provide a username"
-    exit 1
-fi
+#if [ -z "$user" ]; then
+#    echo "Please provide a username"
+#    exit 1
+#fi
 
 
 
