@@ -32,6 +32,7 @@ fi
 # Set other variables
 Pin="123456"
 Autostart=false
+user="user"
 
 # Update packages
 apt update
@@ -86,10 +87,10 @@ finish_setup() {
 }
 
 # Check if username is provided
-#if [ -z "$user" ]; then
-#    echo "Please provide a username"
-#    exit 1
-#fi
+if [ -z "$user" ]; then
+    echo "Please provide a username"
+    exit 1
+fi
 
 
 
