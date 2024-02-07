@@ -31,7 +31,7 @@ fi
 
 # Set other variables
 Pin="123456"
-Autostart=false
+Autostart=true
 user="user"
 
 # Update packages
@@ -66,6 +66,8 @@ install_google_chrome() {
     dpkg --install google-chrome-stable_current_amd64.deb
     apt install --assume-yes --fix-broken
 }
+
+
 
 # Function to finalize setup
 finish_setup() {
