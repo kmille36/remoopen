@@ -1,5 +1,25 @@
 #!/bin/bash
 
+username="user"
+password="root"
+
+echo "Creating User and Setting it up"
+
+# Creation of user
+useradd -m "$username"
+
+# Add user to sudo group
+adduser "$username" sudo
+    
+# Set password of user to 'root'
+echo "$username:$password" | sudo chpasswd
+
+# Change default shell from sh to bash
+sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd
+
+echo "User created and configured having username '$username' and password '$password'"
+
+
 # Prompt user for CRP
 read -p "Enter the authentication code from http://remotedesktop.google.com/headless: " CRP
 
