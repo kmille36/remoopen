@@ -77,7 +77,7 @@ finish_setup() {
         link="https://colab.research.google.com/github/PradyumnaKrishna/Colab-Hacks/blob/master/Colab%20RDP/Colab%20RDP.ipynb"
         colab_autostart="[Desktop Entry]\nType=Application\nName=Colab\nExec=sh -c \"sensible-browser $link\"\nIcon=\nComment=Open a predefined notebook at session signin.\nX-GNOME-Autostart-enabled=true"
         echo -e "$colab_autostart" > /home/$user/.config/autostart/colab.desktop
-        RUN echo "/usr/bin/pulseaudio --start" >> /home/$user/.config/autostart/colab.desktop
+        echo "/usr/bin/pulseaudio --start" >> /home/$user/.config/autostart/colab.desktop
         chmod +x /home/$user/.config/autostart/colab.desktop
         chown $user:$user /home/$user/.config
     fi
