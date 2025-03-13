@@ -4,7 +4,7 @@ set -e
 echo "Updating package list and installing dependencies..."
 # Update and install packages (xfce4, novnc, websockify, turbovnc, xvfb, git, and python3-pip)
 sudo apt-get update
-sudo apt-get install -y xfce4 xfce4-goodies xorg dbus-x11 x11-xserver-utils novnc websockify turbovnc xvfb git python3-pip
+sudo apt-get install -y xfce4 xfce4-goodies xorg dbus-x11 x11-xserver-utils novnc websockify tigervnc-standalone-server xvfb git python3-pip
 
 echo "Installing pyngrok for tunnel creation..."
 sudo pip3 install pyngrok
